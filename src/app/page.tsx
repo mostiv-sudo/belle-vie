@@ -1,5 +1,5 @@
 import { Award, MessageCircle, Shield, Sparkles, Users } from "lucide-react";
-import Image from "next/image";
+
 import { BookingForm } from "../components/BookingForm";
 import { ReviewCard } from "../components/ReviewCard";
 import { services } from "../data/services";
@@ -9,6 +9,45 @@ import { ServiceCard } from "../components/ServiceCard";
 import Link from "next/link";
 import { DoctorCard } from "../components/DoctorCard";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { Metadata } from "next";
+
+// SEO для главной страницы
+export const metadata: Metadata = {
+  title: "BelleVie — премиум косметология в Москве",
+  description:
+    "BelleVie предлагает профессиональные косметологические услуги: процедуры лица, тела и волос. Опытные врачи и современные технологии.",
+  alternates: {
+    canonical: "https://bellevie.ru",
+  },
+  openGraph: {
+    title: "BelleVie — премиум косметология в Москве",
+    description:
+      "Современные процедуры для лица, тела и волос. Запишитесь на консультацию в BelleVie.",
+    url: "https://bellevie.ru",
+    type: "website",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1731514721772-329626f84c8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
+        width: 1200,
+        height: 630,
+        alt: "BelleVie интерьер",
+      },
+    ],
+  },
+  keywords: [
+    "BelleVie",
+    "косметология премиум",
+    "услуги косметологии",
+    "процедуры лица",
+    "процедуры тела",
+    "услуги волос",
+    "Москва"
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function Home() {
     const featuredServices = services.slice(0, 3);
